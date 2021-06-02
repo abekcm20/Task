@@ -1,4 +1,4 @@
-![register](https://user-images.githubusercontent.com/74650961/120535685-e8389b00-c400-11eb-93b4-b4dc365c1aee.png)
+
 # Task
 
 
