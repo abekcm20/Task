@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <title>
+        </title>
+    </head>
+    <body style="background-color: #1a1a1b;color:#ceced8;">
+    </body>
+</html>
+<body style="background-color: #1a1a1b;color:#ceced8;">
+    {% load crispy_forms_tags %}
+    {% block content %}
+    <!--Register--> 
+    <div class="container py-5">
+        <p align="right"></p>
+        <p class="text-center"><a href="/logout">Logout</a></p>
+        </p>
+        <h1>Tasks</h1>
+        {% for t in task reversed %}
+        <li class="list__item">
+            <p class="tid">{{ t.tid | title }}</p>
+            <p class="uid">{{ t.uid| title }}</p>
+            <p class="task_title">{{ t.task_title| title }}</p>
+            <p class="task_description">{{ t.task_description| title }}</p>
+            <p class="task_pic">{{ t.task_pic| title }}</p>
+            <p class="timestamp">{{ t.timestamp| title }}</p>
+        </li>
+        <html lang="en" dir="ltr">
+            <body>
+               <div class="paginator">
+                 {%if t.has_previous%}
+                 <a href="?page={{t.previous_page_number}}">Previous</a>&nbsp&nbsp
+                 {%endif%}
+                <span>Page {{t.number}} of {{t.paginator.num_pages}}</span>&nbsp&nbsp
+                {%if t.has_next%}
+                <a href="?page={{t.next_page_number}}">Next</a> &nbsp  &nbsp
+                {%endif%}
+               </div>
+            </body>
+          </html>
+
+        {% endfor %}
+    {% endblock content %}
+        </body>
+    </html>
